@@ -2,6 +2,12 @@
 #include <cmath>
 using namespace std;
 #define PI 3.141592654
+// Khai bao cac ham //
+void Menu();
+int Choose();
+void Tinh_Sin();
+void Process();
+////////////////////
 void Menu() {
     cout << endl << endl << endl << L"\t\t\t	Phan Mem Tinh Toan Luong Giac" << endl;
     cout << endl;
@@ -12,6 +18,7 @@ void Menu() {
 	cout << endl << "\t\t\t\t4.Tinh ham cot" << endl;
 	cout << endl << "\t\t\t\t5.Huong dan" << endl;
 	cout << endl << "\t\t\t\t6.Gioi thieu" << endl;
+	cout << endl << "\t\t\t\t7.Thoat" << endl;
 }
 int Choose() {
 	cout << "Nhap lua chon cua ban vao day: ";
@@ -24,15 +31,16 @@ int Choose() {
 	return luachon;
 }
 void Tinh_Sin() {
-	Sin_Menu:
 	cout << "1.Tinh ham sin" << endl;
 	cout << "2.Tinh ham sin^-1" << endl;
+	cout << "3.Tinh sin(x) = a" << endl;
+	cout << "4.Tinh sin(x) = sin(a)" << endl;
 
-	cout << "Nhap lua chon cua ban vao day (ban co them bam 3 de tro ve menu): ";
+	cout << "Nhap lua chon cua ban vao day (ban co them bam 0 de tro ve menu): ";
 	int Sin_Choose;
 	cin >> Sin_Choose;
 
-	while (Sin_Choose != 1 && Sin_Choose != 2 && Sin_Choose != 3) {
+	while (Sin_Choose != 1 && Sin_Choose != 2 && Sin_Choose != 0 && Sin_Choose != 3 && Sin_Choose != 4) {
 		cout << "Vui long nhap lai: ";
 		cin >> Sin_Choose;
 	}
@@ -59,7 +67,7 @@ void Tinh_Sin() {
 			}
 		}
 		system("cls");
-        goto Sin_Menu;
+        Tinh_Sin();
 	}
 	else if (Sin_Choose == 2) {
 		bool OutOfLoop = false;
@@ -84,10 +92,81 @@ void Tinh_Sin() {
 			}
 		}
 		system("cls");
-        goto Sin_Menu;
+        Tinh_Sin();
+	}
+	else if (Sin_Choose == 0) {
+        Process();
+	}
+	else if (Sin_Choose == 3) {
+		bool OutOfLoop = false;
+		while (OutOfLoop == false) {
+            long double a;
+		    cout << "Nhap a = ";
+		    cin >> a;
+
+		    int k = asin(a); // sin(k) = a
+
+		    long double nghiem1 = asin(k),nghiem2 = PI - asin(k);
+		    if (nghiem1 == nghiem2) {
+			   cout << "Phuong trinh co 1 nghiem: " << nghiem1 << " + k2r" << endl;
+		    }
+		    else {
+			   cout << "Phuong trinh co 2 nghiem: " << endl;
+			   cout << "Nghiem 1 : " << nghiem1 << " + k2r" << endl;
+			   cout << "Nghiem 2 : " << nghiem2 << " + k2r" << endl;
+		    }
+
+			cout << endl << "Ban co muon lam lai? (1 la co,2 la khong): ";
+			int Continue;
+            cin >> Continue;
+
+			while (Continue != 1 && Continue != 2) {
+				cout << "Vui long nhap lai: ";
+				cin >> Continue;
+			}
+
+			if (Continue == 2) {
+				OutOfLoop = true;
+			}
+		}
+        system("cls");
+		Tinh_Sin();
+	}
+	else if (Sin_Choose == 4) {
+		bool OutOfLoop = false;
+		while (OutOfLoop == false) {
+            long double a;
+		    cout << "Nhap a = ";
+		    cin >> a;
+
+		    long double nghiem1 = a,nghiem2 = PI - a;
+		    if (nghiem1 == nghiem2) {
+			   cout << "Phuong trinh co 1 nghiem: " << nghiem1 << " + k2r" << endl;
+		    }
+		    else {
+			   cout << "Phuong trinh co 2 nghiem: " << endl;
+			   cout << "Nghiem 1 : " << nghiem1 << " + k2r" << endl;
+			   cout << "Nghiem 2 : " << nghiem2 << " + k2r" << endl;
+		    }
+
+			cout << endl << "Ban co muon lam lai? (1 la co,2 la khong): ";
+			int Continue;
+            cin >> Continue;
+
+			while (Continue != 1 && Continue != 2) {
+				cout << "Vui long nhap lai: ";
+				cin >> Continue;
+			}
+
+			if (Continue == 2) {
+				OutOfLoop = true;
+			}
+		}
+        system("cls");
+		Tinh_Sin();
 	}
 }
-int main() {
+void Process() {
     system("cls");
     
     Menu();
@@ -98,4 +177,7 @@ int main() {
 		system("cls");
 		Tinh_Sin();
 	}
+}
+int main() {
+   Process();
 }
