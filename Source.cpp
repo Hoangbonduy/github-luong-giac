@@ -10,18 +10,19 @@ void Tinh_Cos();
 void Tinh_Tan();
 void Tinh_Cot();
 void Process();
+void Introduction();
+void Exit();
 ////////////////////
 void Menu() {
-    cout << endl << endl << endl << L"\t\t\t	Phan Mem Tinh Toan Luong Giac" << endl;
+    cout << endl << endl << endl << "\t\t\t	Phan Mem Tinh Toan Luong Giac" << endl;
     cout << endl;
 	cout << "\t\t\t\t    MENU" << endl;
 	cout << endl << "\t\t\t\t1.Tinh ham sin" << endl;
 	cout << endl << "\t\t\t\t2.Tinh ham cos" << endl;
 	cout << endl << "\t\t\t\t3.Tinh ham tan" << endl;
 	cout << endl << "\t\t\t\t4.Tinh ham cot" << endl;
-	cout << endl << "\t\t\t\t5.Huong dan" << endl;
-	cout << endl << "\t\t\t\t6.Gioi thieu" << endl;
-	cout << endl << "\t\t\t\t7.Thoat" << endl;
+	cout << endl << "\t\t\t\t5.Gioi thieu" << endl;
+	cout << endl << "\t\t\t\t6.Thoat" << endl;
 }
 int Choose() {
 	cout << "Nhap lua chon cua ban vao day: ";
@@ -568,6 +569,28 @@ void Process() {
 		system("cls");
 		Tinh_Cot();
 	}
+	else if (people_choose == 5) {
+		system("cls");
+		Introduction();
+	}
+	else if (people_choose == 6) {
+		Exit();
+	} 
+}
+void Introduction() {
+	cout << "Day la phan mem tinh ham luong giac" << endl;
+
+	cout << endl << "--Hoangbonduy (28/9/2020)--" << endl;
+
+	cout << endl << "Nhap phim bat ky de tro ve man hinh chinh: ";
+
+	string temp;
+	cin >> temp;
+    
+	Process();
+}
+void Exit() {
+	exit(0);
 }
 int main() {
    Process();
